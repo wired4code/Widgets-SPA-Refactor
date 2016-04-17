@@ -2,27 +2,26 @@
 
 var app = angular.module('app', ['ngRoute']);
 
-app.config(['$routeProvider', function ($routeProvider){
+app.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider){
 
   $routeProvider
 
     .when('/', {
-      templateUrl: 'home.html',
-      controller: 'homeController'
+      templateUrl: 'home/home.html',
+      controller: 'HomeController'
     })
 
     .when('/user', {
-      templateUrl: 'user.html',
-      controller: 'userController'
+      templateUrl: 'user/user.html',
+      controller: 'UserController'
     })
 
     .when('/widget', {
-      templateUrl: 'widget.html',
-      controller: 'widgetController'
+      templateUrl: 'widget/widget.html',
+      controller: 'WidgetController'
     })
 
     .otherwise({redirectTo: '/'})
-
 
 
 }])
