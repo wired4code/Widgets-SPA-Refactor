@@ -16,12 +16,17 @@ app.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpPr
       controller: 'UserController'
     })
 
+    .when('/user/:userId', {
+      templateUrl: 'user/oneuser.html',
+      controller: 'UserController'
+    })
+
     .when('/widget', {
       templateUrl: 'widget/widget.html',
       controller: 'WidgetController'
     })
 
-    .otherwise({redirectTo: '/'})
+     .otherwise({redirectTo: '/'})
 
 
 }])

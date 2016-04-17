@@ -19,7 +19,7 @@
           <tbody ng-repeat="user in users | filter:searchUser">
             <tr>
               <td class="text-center">{{user.id}}</td>
-              <td>{{user.name}}</td>
+              <td><a ng-href="/#/user/{{user.id}}">{{user.name}}</a></td>
               <td><img src={{user.gravatar}}></td>
             </tr>
           </tbody>

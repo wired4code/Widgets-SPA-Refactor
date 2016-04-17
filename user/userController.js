@@ -1,11 +1,14 @@
-app.controller('UserController', ['HomeFactory', '$scope', function(HomeFactory, $scope){
+app.controller('UserController', ['HomeFactory', '$scope','$routeParams', function(HomeFactory, $scope, $routeParams){
 
+  var individual = $routeParams.userId;
   $scope.users;
+  $scope.oneuser;
 
   $scope.getUsers = function(){
     HomeFactory.getUsers()
       .then(function(data){
         $scope.users = data;
+        $scope.oneuser = data[individual];
       })
   }
 
