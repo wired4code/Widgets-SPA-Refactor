@@ -1,4 +1,4 @@
-app.controller('WidgetController', ['HomeFactory','$scope', function(HomeFactory, $scope){
+app.controller('WidgetController', ['HomeFactory','$scope', '$location', '$anchorScroll', function(HomeFactory, $scope, $location, $anchorScroll){
 
   $scope.widgets;
 
@@ -17,6 +17,11 @@ app.controller('WidgetController', ['HomeFactory','$scope', function(HomeFactory
         }
 
       })
+  }
+
+  $scope.createWidget = function(){
+    $location.hash('create-widget');
+    $anchorScroll();
   }
 
   $scope.getWidgets();
