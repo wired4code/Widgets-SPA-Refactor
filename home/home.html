@@ -31,7 +31,7 @@
   <div class="col-lg-6">
     <div class="widget">
       <div class="widget-header">Users
-        <div class="pull-right"><input type="text" class="form-control input-sm"></div>
+        <div class="pull-right"><input type="text" class="form-control input-sm" ng-model="searchUser"></div>
       </div>
       <div class="table-responsive">
         <table class="table">
@@ -41,7 +41,7 @@
               <th>Name</th>
             </tr>
           </thead>
-          <tbody ng-repeat="user in users">
+          <tbody ng-repeat="user in users | filter:searchUser">
             <tr>
               <td class="text-center">{{user.id}}</td>
               <td>{{user.name}}</td>
@@ -56,7 +56,7 @@
   <div class="col-lg-6">
     <div class="widget">
       <div class="widget-header">Widgets
-        <div class="pull-right"><input type="text" class="form-control input-sm"></div>
+        <div class="pull-right"><input type="text" class="form-control input-sm" ng-model="searchWidget"></div>
       </div>
       <div class="table-responsive">
         <table class="table">
@@ -66,7 +66,7 @@
               <th>Name</th>
             </tr>
           </thead>
-          <tbody ng-repeat="widget in widgets">
+          <tbody ng-repeat="widget in widgets | filter:searchWidget">
             <tr>
               <td class="text-center">{{widget.id}}</td>
               <td>{{widget.name}}</td>
