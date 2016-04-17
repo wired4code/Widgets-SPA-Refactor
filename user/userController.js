@@ -1,6 +1,6 @@
 app.controller('UserController', ['HomeFactory', '$scope','$routeParams', function(HomeFactory, $scope, $routeParams){
 
-  var individual = $routeParams.userId;
+  var individual = $routeParams.userId - 1;
   $scope.users;
   $scope.oneuser;
 
