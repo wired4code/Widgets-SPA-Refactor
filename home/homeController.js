@@ -1,7 +1,7 @@
 app.controller('HomeController', ['HomeFactory','$scope', function(HomeFactory, $scope){
 
-  $scope.users = null;
-  $scope.widgets = null;
+  $scope.users;
+  $scope.widgets;
 
   $scope.getUsers = function(){
     HomeFactory.getUsers()
@@ -20,6 +20,5 @@ app.controller('HomeController', ['HomeFactory','$scope', function(HomeFactory, 
 
   $scope.getUsers();
   $scope.getWidgets();
-
 
 }])
