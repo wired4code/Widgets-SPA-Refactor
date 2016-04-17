@@ -6,7 +6,6 @@ app.factory('HomeFactory', function($http){
       url: 'http://spa.tglrw.com:4000/users'
     })
     .then(function(users){
-      console.log('FACT:USERS ', users)
       return users.data;
     })
   }
