@@ -5,7 +5,7 @@ app.controller('WidgetController', ['HomeFactory', 'WidgetFactory','$scope', '$l
   $scope.newWidget.melts = $scope.newWidget.melts || false;
 
   var widgetId = $routeParams.widgetId;
-
+  $scope.id = widgetId;
   $scope.edited = {};
   $scope.edited.melts = $scope.edited.melts || false;
 

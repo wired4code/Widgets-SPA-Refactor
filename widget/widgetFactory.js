@@ -7,7 +7,6 @@ app.factory('WidgetFactory', function($http){
       data: JSON.stringify(widget)
     })
       .then(function(data){
-        console.log('Widget successfully added');
         return data;
       });
   }
@@ -19,7 +18,6 @@ app.factory('WidgetFactory', function($http){
       url: 'http://spa.tglrw.com:4000/widgets/'+id,
       data: JSON.stringify(widget)
     }).then(function(data){
-      console.log('Widget successfully changed');
       return data;
     })
   }

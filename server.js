@@ -2,6 +2,7 @@ var express = require('express');
 var http = require ('http');
 var parser = require('body-parser');
 
+// to resolve CORS issues making external API calls from client
 var allowCrossDomain = function(req, res, next) {
     if ('OPTIONS' == req.method) {
       res.header('Access-Control-Allow-Origin', '*');
