@@ -4,11 +4,6 @@ var app = angular.module('app', ['ngRoute']);
 
 app.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider){
 
-  $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers.common["X-Requested-With"];
-  $httpProvider.defaults.headers.common["Accept"] = "application/json";
-  $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
-
   $routeProvider
 
     .when('/', {
@@ -28,6 +23,11 @@ app.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpPr
 
     .when('/widget', {
       templateUrl: 'widget/widget.html',
+      controller: 'WidgetController'
+    })
+
+    .when('/widget/:widgetId', {
+      templateUrl: 'widget/editWidget.html',
       controller: 'WidgetController'
     })
 

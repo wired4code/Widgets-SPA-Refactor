@@ -13,6 +13,7 @@ server.set('port', 4000);
 server.use(express.static(__dirname + '/'));
 
 server.post('/addwidget', function(req, res){
+  console.log('ADDING: ', req.body);
   var widget = req.body;
   var options = {
     "method": "POST",
@@ -34,17 +35,16 @@ server.post('/addwidget', function(req, res){
 
     res.on("end", function () {
       var body = Buffer.concat(chunks);
-      console.log(body.toString());
     });
   })
-
+  console.log('WIDGET AT END: ', widget)
   reqPost.write(JSON.stringify(widget))
   reqPost.end();
 
 })
 
 server.put('/changewidget', function(req, res){
-  console.log('WIDGE', req.body)
+  console.log('WIDGET: ', req.body);
   var widget = req.body;
   var id = req.body.id;
   var options = {

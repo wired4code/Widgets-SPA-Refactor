@@ -24,7 +24,7 @@
           <tbody ng-repeat="widget in widgets">
             <tr>
               <td class="text-center">{{widget.id}}</td>
-              <td>{{widget.name}}</td>
+              <td><a ng-href="/#/widget/{{widget.id}}">{{widget.name}}</a></td>
               <td>{{widget.color}}</td>
               <td>{{widget.price}}</td>
               <td>{{widget.melts}}</td>

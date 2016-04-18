@@ -1,7 +1,13 @@
-app.controller('WidgetController', ['HomeFactory', 'WidgetFactory','$scope', '$location', '$anchorScroll', function(HomeFactory, WidgetFactory, $scope, $location, $anchorScroll){
+app.controller('WidgetController', ['HomeFactory', 'WidgetFactory','$scope', '$location', '$anchorScroll', '$routeParams', function(HomeFactory, WidgetFactory, $scope, $location, $anchorScroll, $routeParams){
 
   $scope.widgets;
   $scope.newWidget = {};
+  $scope.newWidget.melts = $scope.newWidget.melts || false;
+
+  var widgetId = $routeParams.widgetId;
+
+  $scope.edited = {};
+  $scope.edited.melts = $scope.edited.melts || false;
 
   $scope.getWidgets = function(){
     HomeFactory.getWidgets()
@@ -27,6 +33,7 @@ app.controller('WidgetController', ['HomeFactory', 'WidgetFactory','$scope', '$l
 
   $scope.addWidget = function(widget){
     var obj = widget;
+
     $scope.newWidget = {};
     WidgetFactory.addWidget(obj)
       .then(function(){
@@ -35,8 +42,8 @@ app.controller('WidgetController', ['HomeFactory', 'WidgetFactory','$scope', '$l
   }
 
   $scope.editWidget = function(widget){
-    var id = widget.id;
-    WidgetFactory.editWidget(widget, id)
+    widget.id = widgetId;
+    WidgetFactory.editWidget(widget)
       .then(function(){
         $scope.getWidgets();
       })

@@ -6,9 +6,9 @@ app.factory('WidgetFactory', function($http){
       url: '/addwidget',
       data: JSON.stringify(widget)
     })
-      .then(function(widget){
+      .then(function(data){
         console.log('Widget successfully added');
-        return widget;
+        return data;
       });
   }
 
@@ -16,10 +16,10 @@ app.factory('WidgetFactory', function($http){
     return $http({
       method: 'PUT',
       url: '/changewidget',
-      data: JSON.stringify(widget);
-    }).then(function(widget){
+      data: JSON.stringify(widget)
+    }).then(function(data){
       console.log('Widget successfully changed');
-      return widget;
+      return data;
     })
   }
 
