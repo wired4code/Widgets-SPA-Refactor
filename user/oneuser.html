@@ -1,6 +1,21 @@
-<div>
-  <h1>{{oneuser.name}}</h1>
-  <img src={{oneuser.gravatar}}>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">ID</th>
+        <th>Name</th>
+        <th>Avatar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center"><h1>{{oneuser.id}}</h1></td>
+        <td><h1>{{oneuser.name}}</h1></td>
+        <td><img src={{oneuser.gravatar}}></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
 
 
