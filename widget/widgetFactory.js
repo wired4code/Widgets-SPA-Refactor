@@ -2,10 +2,12 @@ app.factory('WidgetFactory', function($http){
 
   var addWidget = function(widget){
 
+    var data = JSON.stringify(widget);
+
     return $http({
       method: 'POST',
       url: 'http://spa.tglrw.com:4000/widgets',
-      data: widget
+      data: data
     })
       .then(function(widget){
         console.log('Widget successfully added');

@@ -1,0 +1,23 @@
+{
+  "name": "widgets-spa-refactor",
+  "version": "1.0.0",
+  "description": "This is a simple multi-page HTML site. The goal of this project is to take this hardcoded HTML site, and make it hit an API for showing/listing user and widget information.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wired4code/Widgets-SPA-Refactor.git"
+  },
+  "author": "Sonny Sheth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wired4code/Widgets-SPA-Refactor/issues"
+  },
+  "homepage": "https://github.com/wired4code/Widgets-SPA-Refactor#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
