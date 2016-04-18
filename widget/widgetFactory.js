@@ -3,7 +3,7 @@ app.factory('WidgetFactory', function($http){
   var addWidget = function(widget){
     return $http({
       method: 'POST',
-      url: '//spa.tglrw.com:4000/widgets',
+      url: 'http://spa.tglrw.com:4000/widgets',
       data: JSON.stringify(widget)
     })
       .then(function(data){
@@ -15,7 +15,7 @@ app.factory('WidgetFactory', function($http){
     var id = widget.id;
     return $http({
       method: 'PUT',
-      url: '//spa.tglrw.com:4000/widgets/'+id,
+      url: 'http://spa.tglrw.com:4000/widgets/'+id,
       data: JSON.stringify(widget)
     }).then(function(data){
       return data;

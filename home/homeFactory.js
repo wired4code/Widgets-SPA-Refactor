@@ -3,7 +3,7 @@ app.factory('HomeFactory', function($http){
   var getUsers = function(){
     return $http({
       method: 'GET',
-      url: '//spa.tglrw.com:4000/users'
+      url: 'http://spa.tglrw.com:4000/users'
     })
     .then(function(users){
       return users.data;
@@ -13,7 +13,7 @@ app.factory('HomeFactory', function($http){
   var getWidgets = function(){
     return $http({
       method: 'GET',
-      url: '//spa.tglrw.com:4000/widgets'
+      url: 'http://spa.tglrw.com:4000/widgets'
     })
     .then(function(widgets){
       return widgets.data;
