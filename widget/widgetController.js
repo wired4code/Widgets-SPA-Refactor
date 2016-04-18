@@ -26,7 +26,6 @@ app.controller('WidgetController', ['HomeFactory', 'WidgetFactory','$scope', '$l
   }
 
   $scope.addWidget = function(widget){
-    widget.id = $scope.widgets.length;
     var obj = widget;
     $scope.newWidget = {};
     WidgetFactory.addWidget(obj)

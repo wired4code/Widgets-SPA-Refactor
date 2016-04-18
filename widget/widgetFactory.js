@@ -1,16 +1,14 @@
 app.factory('WidgetFactory', function($http){
 
   var addWidget = function(widget){
-
-    var data = JSON.stringify(widget);
-
     return $http({
       method: 'POST',
-      url: 'http://spa.tglrw.com:4000/widgets',
-      data: data
+      url: '/addwidget',
+      data: JSON.stringify(widget)
     })
       .then(function(widget){
         console.log('Widget successfully added');
+        return widget;
       });
   }
 
