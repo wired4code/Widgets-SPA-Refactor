@@ -12,11 +12,14 @@ app.factory('WidgetFactory', function($http){
       });
   }
 
-  var editWidget = function(widget, id){
+  var editWidget = function(widget){
     return $http({
       method: 'PUT',
-      url: 'http://spa.tglrw.com:4000/widgets/:'+id,
-      data: widget
+      url: '/changewidget',
+      data: JSON.stringify(widget);
+    }).then(function(widget){
+      console.log('Widget successfully changed');
+      return widget;
     })
   }
 

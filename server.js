@@ -13,7 +13,6 @@ server.set('port', 4000);
 server.use(express.static(__dirname + '/'));
 
 server.post('/addwidget', function(req, res){
-  console.log('WIDGE', req.body)
   var widget = req.body;
   var options = {
     "method": "POST",
@@ -27,20 +26,53 @@ server.post('/addwidget', function(req, res){
   };
 
   var reqPost = http.request(options, function (res) {
-    // var chunks = [];
+    var chunks = [];
 
-    // res.on("data", function (chunk) {
-    //   chunks.push(chunk);
-    // });
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
+    });
 
-    // res.on("end", function () {
-    //   var body = Buffer.concat(chunks);
+    res.on("end", function () {
+      var body = Buffer.concat(chunks);
       console.log(body.toString());
-
+    });
   })
 
   reqPost.write(JSON.stringify(widget))
   reqPost.end();
+
+})
+
+server.put('/changewidget', function(req, res){
+  console.log('WIDGE', req.body)
+  var widget = req.body;
+  var id = req.body.id;
+  var options = {
+    "method": "PUT",
+    "hostname": "spa.tglrw.com",
+    "port": "4000",
+    "path": "/widgets/"+id,
+    "headers": {
+      "content-type": "application/json",
+      "cache-control": "no-cache"
+    }
+  };
+
+  var reqPut = http.request(options, function (res) {
+    var chunks = [];
+
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
+    });
+
+    res.on("end", function () {
+      var body = Buffer.concat(chunks);
+      console.log(body.toString());
+    });
+  })
+
+  reqPut.write(JSON.stringify(widget))
+  reqPut.end();
 
 })
 
