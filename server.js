@@ -1,82 +1,27 @@
-/**
- * Module dependencies.
- */
 var express = require('express');
 var http = require ('http');
 var parser = require('body-parser');
 
+var allowCrossDomain = function(req, res, next) {
+    if ('OPTIONS' == req.method) {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+      res.send(200);
+    }
+    else {
+      next();
+    }
+};
 
-// Node express server setup.
+
 var server = express();
 server.use(parser.json());
+server.use(allowCrossDomain);
 server.set('port', 4000);
 server.use(express.static(__dirname + '/'));
 
-server.post('/addwidget', function(req, res){
-  console.log('ADDING: ', req.body);
-  var widget = req.body;
-  var options = {
-    "method": "POST",
-    "hostname": "spa.tglrw.com",
-    "port": "4000",
-    "path": "/widgets",
-    "headers": {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
-    }
-  };
 
-  var reqPost = http.request(options, function (res) {
-    var chunks = [];
-
-    res.on("data", function (chunk) {
-      chunks.push(chunk);
-    });
-
-    res.on("end", function () {
-      var body = Buffer.concat(chunks);
-    });
-  })
-  console.log('WIDGET AT END: ', widget)
-  reqPost.write(JSON.stringify(widget))
-  reqPost.end();
-
-})
-
-server.put('/changewidget', function(req, res){
-  console.log('WIDGET: ', req.body);
-  var widget = req.body;
-  var id = req.body.id;
-  var options = {
-    "method": "PUT",
-    "hostname": "spa.tglrw.com",
-    "port": "4000",
-    "path": "/widgets/"+id,
-    "headers": {
-      "content-type": "application/json",
-      "cache-control": "no-cache"
-    }
-  };
-
-  var reqPut = http.request(options, function (res) {
-    var chunks = [];
-
-    res.on("data", function (chunk) {
-      chunks.push(chunk);
-    });
-
-    res.on("end", function () {
-      var body = Buffer.concat(chunks);
-      console.log(body.toString());
-    });
-  })
-
-  reqPut.write(JSON.stringify(widget))
-  reqPut.end();
-
-})
-
-// Start Server.
 server.listen(server.get('port'), function() {
     console.log('Express server listening on port ' + server.get('port'));
 });
