@@ -55,7 +55,7 @@
           <!-- Name-->
           <div class="controls">
           Name
-            <input id="widget-name" name="widget-name" type="text" placeholder="foo-bar" class="input-medium">
+            <input id="widget-name" name="widget-name" type="text" placeholder="foo-bar" class="input-medium" ng-model="newWidget.name">
           </div>
 
           <!-- Price -->
@@ -63,14 +63,14 @@
             <div class="input-prepend">
             Price
               <span class="add-on">$</span>
-              <input id="widget-price" name="widget-price" class="input-medium" placeholder="0.00" type="text">
+              <input id="widget-price" name="widget-price" class="input-medium" placeholder="0.00" type="text" ng-model="newWidget.price">
             </div>
           </div>
 
           <!-- Color -->
           <div class="controls">
           Color
-            <select id="widget-color" name="widget-color" class="input-large">
+            <select id="widget-color" name="widget-color" class="input-large" ng-model="newWidget.color">
               <option>red</option>
               <option>purple</option>
               <option>black</option>
@@ -84,16 +84,22 @@
           <!-- Melts -->
           <div class="controls">
             Melts
-            <input type="checkbox" name="widget-properties" id="widget-properties-0" value="melts">
+            <input type="checkbox" name="widget-properties" id="widget-properties-0" value="melts" ng-model="newWidget.melts">
           </div>
 
           <!-- Inventory -->
           <div class="controls">
             Inventory
-            <input id="widget-count" name="widget-count" type="text" placeholder="#?" class="input-small">
+            <input id="widget-count" name="widget-count" type="text" placeholder="#?" class="input-small" ng-model="newWidget.count">
           </div>
+
+          <!-- Create Widget Submit Button -->
+          <div class="controls">
+            <input class="btn btn-sm btn-info" type="submit" value="Create" ng-click="addWidget(newWidget)">
+          </div>
+
         </form>
       </div><!-- End Widget body -->
     </div><!-- End Widget -->
   </div><!-- End Column -->
-</div><!-- End Row -->
+</div><!-- End Row
