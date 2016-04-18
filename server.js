@@ -15,11 +15,12 @@ var allowCrossDomain = function(req, res, next) {
     }
 };
 
+var port = process.env.PORT || 3000;
 
 var server = express();
 server.use(parser.json());
 server.use(allowCrossDomain);
-server.set('port', 4000);
+server.set('port', port);
 server.use(express.static(__dirname + '/'));
 
 
