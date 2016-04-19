@@ -3,7 +3,7 @@ This is a simple multi-page HTML site. The goal of this project is to take this 
 
 # Demo
 
-[widget-spa-refactor-sns.herokuapp.com] (widget-spa-refactor-sns.herokuapp.com)
+<widget-spa-refactor-sns.herokuapp.com>
 
 
 ## Features
