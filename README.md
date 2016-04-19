@@ -1,9 +1,9 @@
 # Widgets Single Page App Demo
-This is a simple multi-page HTML site. The goal of this project is to take this hardcoded HTML site, and make it hit an API for showing/listing user and widget information.
+The goal of this project was to take a hardcoded multi-page HTML site, refactor it into an SPA and make it hit an API for showing/listing user and widget information. This site was refactored using AngularJS.
 
 # Demo
 
-<widget-spa-refactor-sns.herokuapp.com>
+[widget-spa-refactor-sns.herokuapp.com](http://widget-spa-refactor-sns.herokuapp.com)
 
 
 ## Features
